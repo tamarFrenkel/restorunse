@@ -1,5 +1,10 @@
 const Worker = require('../modells/workerModel');
 
+app.get("/", (req, res) => {
+  res.send("API is running... ✅");
+});
+
+
 const addNewWorker = async (req, res) => {
   try {
     const imageUrl = req.file ? `/images/${req.file.filename}` : null;
