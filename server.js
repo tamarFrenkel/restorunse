@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const PORT = process.env.PORT || 5000;
+
 
 //אם המסד נתונים הזה קיים הוא יתחבר אליו,
 //אם לא קיים הוא ייצר לי אותו
@@ -26,3 +28,6 @@ app.use('/api/workers', workerRouter);
 app.use('/api/dishes', dishRouter);
 app.use('/api/tasks', taskRouter);
 app.use('/images', express.static('public/images'));
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
